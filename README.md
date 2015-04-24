@@ -1,4 +1,4 @@
-# Scaffold for live coding meetup talk
+# Scaffold for live coding meetup event
 
 ### Installation
 Make sure you have nodejs installed.
