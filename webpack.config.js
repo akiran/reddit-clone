@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  devtool: '#inline-source-map',
+  debug: true,
   entry: {
     'app.js': './client/js/app.jsx'
   },

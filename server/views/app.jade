@@ -1,7 +1,7 @@
-doctype html
-html(lang="en")
-  head
-    link(rel="stylesheet", href="#{settings.staticUrl}/css/app.css")
-  body
-    #rapp 
-    script(src="#{settings.staticUrl}/js/app.js")
+extends base
+block extra-css
+  link(rel="stylesheet", href="#{settings.staticUrl}/css/app.css")
+block content
+  #rapp 
+block extra-js
+  script(src="#{settings.staticUrl}/js/app.js")

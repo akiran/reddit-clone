@@ -24,7 +24,7 @@ app.use(webpackMiddleware(webpack(require('../webpack.config.js')), {
   publicPath: "/js/",
 }));
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
   res.render('app');
 });
 

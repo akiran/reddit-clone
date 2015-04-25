@@ -4,6 +4,7 @@ var gutil = require('gulp-util');
 var sass = require('gulp-sass'); 
 var autoprefixer   = require('gulp-autoprefixer');
 var webpack = require("webpack");
+var runSequence = require('run-sequence');
 var del = require('del');
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -14,7 +15,8 @@ gulp.task('clean', function () {
 });
 
 gulp.task('copy', function () {
-  
+  return gulp.src('bower_components/font-awesome/fonts/*')
+             .pipe(gulp.dest('build/fonts'))
 });
 
 gulp.task('sass', function () {
@@ -37,7 +39,7 @@ gulp.task("js", function(callback) {
 });
 
 gulp.task('build', function(cb) {
-  runSequence('clean', ['copy', 'sass'], function () {
+  runSequence('clean', ['copy', 'sass', 'js'], function () {
     cb();
   });
 });
@@ -47,4 +49,6 @@ gulp.task('watch', ['copy', 'sass'], function () {
   gulp.watch(['client/**/*.{scss,sass}'], ['sass']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch'], function () {
+  
+});
