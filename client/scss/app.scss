@@ -1,0 +1,26 @@
+@import "normalize-scss/normalize";
+@import "jeet/scss/jeet/index";
+@import "font-awesome/scss/font-awesome";
+@import "./colors";
+@import "./typography";
+@import "./header";
+@import "./sidebar";
+@import "./content";
+
+.container {
+  @include center();
+}
+
+.subreddit-form {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.post-form {
+  margin-top: 20px;
+  padding-left: 200px;
+}
+
+
+

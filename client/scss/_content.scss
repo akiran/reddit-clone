@@ -1,0 +1,21 @@
+.content {
+  @include column(2/3);
+}
+
+.post {
+  @include center();
+  margin: 10px;
+}
+
+.post-vote {
+  @include column(1/10);
+  text-align: center;
+  i {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.post-content {
+  @include column(9/10);
+}

@@ -1,0 +1,16 @@
+.header {
+  background: $secondary-color;
+  box-shadow: 0 2px 2px -2px #777;
+  @include center();
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: $text-color;
+    float: left;
+    padding: 5px;
+    cursor: pointer;
+  }
+}

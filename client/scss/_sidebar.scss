@@ -1,0 +1,12 @@
+.sidebar {
+  @include column(1/3);
+  a {
+    display: block;
+    background: $primary-color;
+    color: black;
+    text-align: center;
+    width: 80%;
+    margin: 10px;
+    font-size: 1.2em;
+  }
+}
