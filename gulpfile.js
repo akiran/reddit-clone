@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var autoprefixer   = require('gulp-autoprefixer');
 var webpack = require("webpack");
 var runSequence = require('run-sequence');
+var bower = require('gulp-bower');
 var del = require('del');
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -12,6 +13,10 @@ gulp.task('clean', function () {
   return del(['build/*'] , function (err, deletedFiles) {
     console.log('successfully deleted');
   }); 
+});
+
+gulp.task('bower', function () {
+  return bower({ cmd: 'update'});
 });
 
 gulp.task('copy', function () {
@@ -39,16 +44,15 @@ gulp.task("js", function(callback) {
 });
 
 gulp.task('build', function(cb) {
-  runSequence('clean', ['copy', 'sass', 'js'], function () {
+  runSequence('clean', 'bower', ['copy', 'sass', 'js'], function () {
     cb();
   });
 });
 
 
-gulp.task('watch', ['copy', 'sass'], function () {
+gulp.task('watch', ['build'], function () {
   gulp.watch(['client/**/*.{scss,sass}'], ['sass']);
+  gulp.watch(['client/**/*.{js,jsx}'], ['js']);
 });
 
-gulp.task('default', ['watch'], function () {
-  
-});
+gulp.task('default', ['watch']);
